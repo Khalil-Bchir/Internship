@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    
+
+<br>
+<div class="example-wrapper">
+    
+    <h2> Internships</h2>
+    <table class="table table-hover">
+        
+        <thead>
+            <tr>
+            
+            <th scope="col">Title</th>
+            <th scope="col">Periode</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            
+            {% for internship in internship %}
+                {% for user in user %}
+                    
+                        <tr>
+                            <td><a class="text-secondary" href="{{ path('user.show',{id: user.id} ) }}" > {{internship.title}} </a></td>
+                            <td><a class="text-secondary" href="{{ path('user.show',{id: user.id} ) }}" > {{internship.periode}} </a></td>
+                            <td><a class="text-danger" href="{{ path('internship.remove',{id: internship.id} ) }}" > Delete</a> </td>
+                        </tr>
+                    
+                {% endfor %}   
+            {% endfor %}
+        
+        </tbody>
+    
+    </table>
+</div>
+{% endblock %}

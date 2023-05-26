@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block tiltle %}
+    Create an Internship
+{% endblock %}
+
+{% block body %}
+
+{% if condition %}
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {% for message in app.flashes('done') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        
+    <br>
+    <h2> Create an Internship</h2>
+    <br>
+
+    {{form(form)}}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base_user.html.twig" %}
+
+{% block title %} Companies{% endblock %}
+
+{% block body %}
+    <br>
+    <div class="card-deck">
+        {% for user in user %}
+            {% if user.company %}
+            <div class="card">
+                <img class="card-img-top" src="{{ asset( 'uploads/' ~  user.image) }}" width="239" height="200" >
+                <div class="card-body">
+                    <h5 class="card-title" >{{user.company}}</h5>
+                    <p class="card-text">{{user.descriptioncompany}}</p>
+                </div> 
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+       
+    
+{% endblock %}

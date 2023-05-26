@@ -1,0 +1,42 @@
+{% extends 'base_user.html.twig' %}
+
+{% block title %}Hello SimpleUserController!{% endblock %}
+
+{% block body %}
+
+<br>
+<h3> Companies </h3>
+    <div class="card-deck">
+        {% for user in user %}
+            {% if user.company %}
+            <div class="card">
+                <img class="card-img-top" src="{{ asset( 'uploads/' ~  user.image) }}" width="239" height="200" >
+                <div class="card-body">
+                    <h5 class="card-title" >{{user.company}}</h5>
+                    <p class="card-text">{{user.descriptioncompany}}</p>
+                </div> 
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <br>
+
+  <h3> Internships </h3>  
+  {% for internship in internship %}
+    <div class="card mb-3">
+      {% for user in user %}
+        {% if user == internship.company %}
+          <img src="{{ asset( 'uploads/' ~  user.image) }}"class="card-img-top" width="600" height="300" >
+        {% endif %}
+      {% endfor %}
+      <div class="card-body">
+        <h5 class="card-title">{{ internship.title }}</h5>
+        <p class="card-text">{{ internship.description }}</p>
+        <p class="card-text"><small class="text-muted">{{ internship.periode }} </small></p>
+        <button type="button" class="btn btn-light float-lg-right text-white"  ><a href="{{ path('apply') }}" >Easy Apply</a></button>
+      </div>
+
+      
+    </div>
+  {% endfor %}
+{% endblock %}

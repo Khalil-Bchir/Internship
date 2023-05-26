@@ -1,0 +1,26 @@
+{% extends "base_user.html.twig" %}
+
+{% block title %} Internships{% endblock %}
+
+{% block body %}
+    <br>
+    {% for internship in internship %}<br>
+    <div class="card mb-3">
+      {% for user in user %}
+        {% if user == internship.company %}
+          <img src="{{ asset( 'uploads/' ~  user.image) }}"class="card-img-top" width="600" height="300" >
+        {% endif %}
+      {% endfor %}
+      <div class="card-body">
+        <h5 class="card-title">{{ internship.title }}</h5>
+        <p class="card-text">{{ internship.description }}</p>
+        <p class="card-text"><small class="text-muted">{{ internship.periode }} </small></p>
+        <button type="button" class="btn btn-secondary float-lg-right" data-toggle="modal" data-target="#exampleModal">Easy Apply</button>
+      </div>
+
+      
+    </div>
+  {% endfor %}
+       
+    
+{% endblock %}

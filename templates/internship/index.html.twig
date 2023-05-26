@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InternshipController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <br>
+    <h2> Internships</h2><br>
+    <table class="table table-hover">
+        
+        <thead>
+            <tr>
+            
+            <th scope="col">Title</th>
+            <th scope="col">Periode</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            
+            {% for internship in internship %}
+                
+                    
+                        <tr>
+                            <td><a class="text-secondary" href="" > {{internship.title}} </a></td>
+                            <td><a class="text-secondary" href="" > {{internship.periode}} </a></td>
+                            <td><a class="text-danger" href="{{ path('internship.remove',{id: internship.id} ) }}" > Delete</a> </td>
+                        </tr>
+                    
+                   
+            {% endfor %}
+        
+        </tbody>
+    
+    </table>
+</div>
+
+
+
+{% endblock %}
